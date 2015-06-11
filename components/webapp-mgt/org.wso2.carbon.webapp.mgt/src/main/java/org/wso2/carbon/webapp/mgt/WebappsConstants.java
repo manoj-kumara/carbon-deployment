@@ -67,6 +67,12 @@ public final class WebappsConstants {
     //Meta data handling strategies
     public  static  final  int KEEP_DEFAULT_VERSION_META_DATA_STRATEGY = 1;
 
+    public  static  final  String APPLICATION_DESCRIPTOR_FILE = "META-INF/application.xml";
+    public  static  final  String APPLICATION_META_DATA = "app_metadata";
+    public  static  final  String APPLICATION_ID_ATTR = "id";
+    public  static  final  String APPLICATION_ELE = "application";
+    public  static  final  String APPLICATION_MANAGED_API_ELE = "manged-api";
+
     // ClassLoader improvement related constants.
     public static final java.lang.String CARBON_HOME = "carbon.home";
     public static final java.lang.String ELE_PARENT_FIRST = "ParentFirst";

@@ -53,6 +53,11 @@
             <groupId>org.wso2.carbon.identity</groupId>
             <artifactId>org.wso2.carbon.identity.sso.agent</artifactId>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -73,6 +78,7 @@
                         <Bundle-Activator>
                             org.wso2.carbon.webapp.mgt.internal.WebappManagementActivator
                         </Bundle-Activator>
+                        <Require-Capability>osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"</Require-Capability>
                         <Private-Package>org.wso2.carbon.webapp.mgt.internal</Private-Package>
                         <Import-Package>
                             org.apache.axis2.*; version="${axis2.osgi.version.range}",
@@ -86,13 +92,17 @@
                         <Export-Package>
                             !org.wso2.carbon.webapp.mgt.internal,
                             org.wso2.carbon.webapp.mgt,
+                            org.wso2.carbon.webapp.mgt.ext,
                             org.wso2.carbon.webapp.mgt.loader,
                             org.wso2.carbon.webapp.mgt.utils,
                             org.wso2.carbon.webapp.mgt.multitenancy,
                             org.wso2.carbon.webapp.mgt.sync,
-                            org.wso2.carbon.webapp.mgt.version
+                            org.wso2.carbon.webapp.mgt.version,
+                            org.wso2.carbon.webapp.mgt.metadata
                         </Export-Package>
                         <DynamicImport-Package>*</DynamicImport-Package>
+                        <Require-Capability>osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"</Require-Capability>
+                        <Provide-Capability>osgi.serviceloader; osgi.serviceloader=javax.servlet.ServletContainerInitializer</Provide-Capability>
                         <Axis2Deployer>WebappMetadataDeployer</Axis2Deployer>
                     </instructions>
                 </configuration>
